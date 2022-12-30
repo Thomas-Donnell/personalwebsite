@@ -5,23 +5,24 @@ function Home() {
 
   useEffect( () => {
     const canvas = canvasRef.current;
-    // canvas.width = window.innerWidth
-    // canvas.height = window.innerHeight;
-  
-    // const ctx = canvas.getContext('2d');
-   
-      const pr = window.devicePixelRatio;
-      console.log("pixelRatio "+pr)
+    const ctx = canvas.getContext('2d');
+    const pr = window.devicePixelRatio;
+    canvas.width = undefined;
+    canvas.height = undefined;
+    
+    function getSize(){
       const elWidth = window.innerWidth;
       const elHeight = window.innerHeight;
       canvas.width = elWidth * pr;
       canvas.height = elHeight * pr;
-      const ctx = canvas.getContext('2d');
-      //canvas.style.width = elWidth +'px'
+      canvas.style.width = elWidth + 'px';
+      canvas.style.height = elHeight + 'px';
+    }
+   
+    getSize();
 
     function handleResize() {
-      canvas.width = window.innerWidth ;
-      canvas.height = window.innerHeight;
+      getSize();
       console.log(window.InnerHeight);
       console.log(window.innerWidth);
       scaler = canvas.width * .004
@@ -59,7 +60,7 @@ function Home() {
         this.size = canvas.width * .0012;
         this.baseX = this.x;
         this.baseY = this.y;
-        this.density = (Math.random() * 30) + 1;
+        this.density = (Math.random() * 60 * pr) + 1;
         
       }
 
@@ -88,11 +89,11 @@ function Home() {
         } else{
             if(this.x != this.baseX){
               let dx = this.x - this.baseX;
-              this.x -= dx/50;
+              this.x -= dx/20;
             }
             if(this.y != this.baseY){
               let dy = this.y - this.baseY;
-              this.y -= dy/50;
+              this.y -= dy/20;
             }
         }
 
@@ -103,13 +104,13 @@ function Home() {
     const mouse = {
       x: null,
       y: null,
-      radius: 150
+      radius: 150 * pr
     }
 
     window.addEventListener('mousemove',function(event){
       let rect = canvas.getBoundingClientRect();
-      mouse.x = event.clientX - rect.left;
-      mouse.y = event.clientY - rect.top;
+      mouse.x = event.clientX * pr - (rect.left * pr);
+      mouse.y = event.clientY * pr - (rect.top * pr);
     });
 
     console.log(canvas.width )
@@ -134,7 +135,9 @@ function Home() {
         particleArray[i].draw();
         particleArray[i].update();
       }
-      requestAnimationFrame(animate);
+      setTimeout(() => {
+        requestAnimationFrame(animate);
+      },1000/60);
     }
     animate();
 
@@ -143,7 +146,11 @@ function Home() {
 
   return (
     <div id='home'>
-      <canvas className='canvas' ref={canvasRef}/>
+      <div className='backgroundImg'>
+        <div className='mobile-title'>Hi,<br/>I'm Clark</div>
+        <canvas className='canvas' ref={canvasRef}/>
+      </div>
+      
     </div>
   )
 }

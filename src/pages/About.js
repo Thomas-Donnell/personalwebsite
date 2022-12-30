@@ -63,20 +63,26 @@ function About() {
 })
 
   return (
-    <div id='about'>
-      
-      <div className='donut'>
-        <pre className='d' ref={donutRef}></pre>
-      </div>
-      <div className='about-me'>
-        <fieldset>
-          <legend>About Me</legend>
-          <p> Hello, I'm Clark Donnell a computer science student at Western Kentucky University.
-        I love learning and Challenging myself. I have worked on several group and personal projects
-        that have helped me grow as a programmer. I'm excited to learn more and work in more complex code bases and environments.
-        <br/><br/><br/>....Oh, and I can exit Vim ;)</p>
-        </fieldset>
+    <div id='aboutWrapper'>
+      <div id='about'>
         
+        <div className='donut'>
+          <pre className='d' ref={donutRef}></pre>
+        </div>
+        <div className='about-me'>
+          <fieldset>
+            <legend>About Me</legend>
+            <p> Hello, I'm Clark Donnell a computer science student at Western Kentucky University.
+          I love learning and Challenging myself. I have worked on several group and personal projects
+          that have helped me grow as a programmer. I'm excited to learn more and work in more complex code bases and environments.
+          <br/><br/><br/>....Oh, and I can exit Vim ;)</p>
+          </fieldset>
+          
+        </div>
+        
+      </div>
+      <div className='imageWrapper'>
+        <img className = 'img' src='images/helloWorld.png' alt='hello World'/>
       </div>
     </div>
   )

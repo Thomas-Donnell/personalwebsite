@@ -1,5 +1,7 @@
 import React, {useEffect, useRef} from 'react'
+import GitHubIcon from './GitHubIcon';
 import Icon from './Icon'
+import LinkedIcon from './LinkedIcon';
 
 function NavBar() {
   const hamRef = useRef(null);
@@ -50,6 +52,7 @@ function NavBar() {
                     <li><a href='#about'>// About</a></li>
                     <li><a href='#projects'>// Projects</a></li>
                     <li><a href='#contact'>// Contact</a></li>
+                    <li><div className='icons'><GitHubIcon /> <LinkedIcon /></div></li>
                 </ul>
             </div>
         </header>

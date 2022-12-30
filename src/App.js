@@ -8,12 +8,14 @@ import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 
 function App() {
+  
   return (
     <>
       <div id="body">
         <Animation />
         <NavBar />
         <Home />
+        {/* <div className='spacer'><img className='wave' src='images/wave.svg' alt='hello World'/></div> */}
         <About />
         <Projects />
         <Contact />

@@ -20,6 +20,7 @@ header{
     justify-content: flex-start;
     background-color:  #282a35;
     position: fixed;
+    z-index: 1;
     height:fit-content;
     width: 100%;
 }
@@ -37,13 +38,15 @@ header{
 }
 .nav-bar ul {
     display: flex;
+    align-items: center;
     margin: 0;
     padding: 0;
 }
 .nav-bar li{
     user-select: none;
     list-style: none;
-    margin: 30px;
+    margin: 0 30px;
+    
     
 }
 .nav-bar li a{
@@ -80,11 +83,32 @@ header{
     cursor: pointer;
     margin-left: 8%;
     height: 64px;
+    
 }
 
 .logo:hover{
     opacity: 0.5
 
+}
+.linkedLogo{
+    cursor: pointer;
+    font-size: 22pt;
+}
+.gitHubLogo{
+    cursor: pointer;
+    font-size: 22pt;
+    margin-right: 10px;
+}
+path{
+    fill: white;
+    transition: all 0.3s ease 0s;
+}
+
+.linkedLogo:hover path{
+    fill: #e43cf3;
+}
+.gitHubLogo:hover path{
+    fill: #e43cf3;
 }
           
 .btn:hover {
@@ -96,23 +120,20 @@ transition:background-size 1s, background-color 1s;
   
 }
 
-#home{
-    background-color: aqua;
-    width: 100%;
-    height: 100vh;
+
+#aboutWrapper{
+    background-color: #001220;
+    min-height: 100vh;
 }
 
 #about{
-    background-color: black;
     width: 100%;
-    min-height: fit-content;
     display: flex;
 }
 
 .donut{
     font-family: sans-serif;
     color: white;
-    height: 100vh;
     font-size: 15pt;
     width: 50%;
     display: flex;
@@ -150,9 +171,21 @@ transition:background-size 1s, background-color 1s;
 .about-me legend{
     margin-left: 10%;
     font-size: 4vw;
+    font-family: 'Poppins', sans-serif;
+}
+.imageWrapper{
+    text-align: center;
+    opacity: 1;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.img{
+    opacity: .4;
+    max-width: 100%;
+    height: auto;
 }
 #projects{
-    background-color: black;
+    background-color: #001220;
     width: 100%;
     min-height: auto;
 
@@ -187,6 +220,11 @@ transition:background-size 1s, background-color 1s;
     font-family: 'Montserrat', sans-serif;
     margin: 5px;
     transition: 0.4s;
+    transition: all 1s;
+  }
+
+  .show{
+    opacity: 1;;
   }
   .active, .accordion:hover {
     background-color: #740cdc; 
@@ -229,13 +267,17 @@ transition:background-size 1s, background-color 1s;
     justify-content: flex-end;
     height: 100%;
     
+    
 }
 .resourceWrapper2{
     display: flex;
-    margin-top: 10px;
+    flex-wrap: wrap;
+    margin-top: 5px;
+
 }
 .resource{
     margin-left: 10px;
+    margin-top: 10px;
     padding: 10px;
     border-radius: 20px;
     background-color: rgb(136, 50, 50);
@@ -251,6 +293,7 @@ transition:background-size 1s, background-color 1s;
 .buttonWrapper2{
     display: flex;
     flex-direction: column;
+    min-width: fit-content;
 }
 .button {
     align-items: center;
@@ -296,16 +339,144 @@ transition:background-size 1s, background-color 1s;
   }
   
 #contact{
-    background-color: black;
+    background: linear-gradient(#001220, #bc13fe);
+}
+
+#contact .backgroundImg{
+    background-image: url(wave3.svg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
     width: 100%;
     height: 100vh;
 }
 
+.contactTitle{
+    color: white;
+    font-size: 5em;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 2vw 4vw;
+    padding-bottom: 0;
+    width: 60%;
+    border-radius: 10px;
+    min-height: 550px;
+}
+
+form h3{
+    color: #555;
+    font-weight: 800;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+form input, form textarea{
+    border: 0;
+    margin: 10px 0;
+    min-height: 50px;
+    padding: 20px;
+    outline: none;
+    background: #f5f5f5;
+    font-size: 16px;
+}
+
+form textarea{
+    min-height: 125px;
+}
+
+form div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+}
+
+form button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55px;
+    background: #8753ff;
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    width: 150px;
+    border-radius: 30px;
+    transition: all .2s;
+
+}
+
+form button:hover{
+    background: #6525fc;
+}
+
+#alert{
+    position: fixed;
+    opacity: 0;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    color: white;
+    background-color: rgb(97, 85, 87);
+    width: 200px;
+    padding: 20px 0;
+    border-radius: 30px;
+    transition: all .6s;
+}
+#home{
+    background: linear-gradient(#bc13fe, #001220);
+    width: 100%;
+    min-height: 100vh;
+    z-index: -1;
+}
+
 .canvas{
-    
-    background: linear-gradient(#bc13fe, black);
+    display: block;
+    min-height: 100vh;
     
 }
+.backgroundImg{
+    aspect-ratio: 960/300;
+    width:100%;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url('wave2.svg');
+}
+
+.mobile-title{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-family: "poppins", sans-serif;
+    font-size: 80px;
+    width: 100%;
+    height: 100vh;
+    color: white;
+}
+/* .wave{
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    opacity: 1;
+    width: 100%;
+    height: auto;
+} */
 
 @media (max-width: 900px){
     .donut{
@@ -313,43 +484,18 @@ transition:background-size 1s, background-color 1s;
     
     }
 }
-@media(max-width: 660px){
-    .contentWrapper{
-        flex-direction: column; 
-    }
-    .buttonWrapper2{
-        margin-top: 10px;
-        flex-direction: row;
-    }
-    .buttonWrapper1{
-        justify-content: center;
-        
-    }
-    .donut{
-        display: none;
+@media(max-width: 780px){
     
-    }
-    .about-me{
-        min-height: 100vh;
-        width: 100%;
-        margin-left: 15%;
-    }
-    .about-me legend{
-        margin-left: 0%;
-        font-size: 25pt;
-    }
-    .about-me fieldset{
-        font-size: 16pt;
-    }
     .hamburger{
         display: flex;
     }
     header{
         flex-direction: column;
         align-items: flex-start;
+        justify-content: center;
+        
     }
     
-
     .nav-bar ul{
         max-height: 0px;
         overflow: hidden;
@@ -374,6 +520,15 @@ transition:background-size 1s, background-color 1s;
         
 
     }
+    .icons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 65px;
+    }
+    .gitHubLogo{
+        margin-right: 25px;
+    }
     .nav-bar li a:hover{
         
         background-color: #17181d;
@@ -385,6 +540,49 @@ transition:background-size 1s, background-color 1s;
     .nav-bar ul.hamburger-active{
         max-height: 500px;
         transition: max-height 0.5s ease-in;
+    }
+}
+@media(max-width: 660px){
+    canvas{
+        display: none;
+    }
+    .mobile-title{
+        display: flex;
+    }
+    .accordion{
+        width: 80%;
+    }
+    .panel{
+        width: 80%;
+    }
+    form{
+        width: 80%;
+    }
+    .contentWrapper{
+        flex-direction: column; 
+    }
+    .buttonWrapper2{
+        margin-top: 10px;
+        flex-direction: row;
+    }
+    .buttonWrapper1{
+        justify-content: center;
+        
+    }
+    .donut{
+        display: none;
+    
+    }
+    .about-me{
+        width: 100%;
+        margin-left: 15%;
+    }
+    .about-me legend{
+        margin-left: 0%;
+        font-size: 25pt;
+    }
+    .about-me fieldset{
+        font-size: 16pt;
     }
     
 

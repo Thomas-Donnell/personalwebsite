@@ -43,6 +43,20 @@ function Projects() {
       });
     }
   });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('show');
+      }else{
+        entry.target.classList.remove('show');
+      }
+    });
+  })
+
+  const target = document.getElementsByClassName("accordion");
+  for (let i = 0; i < target.length; i++){
+    observer.observe(target[i]);
+  }
 
   return (
     <div id='projects'>
@@ -66,8 +80,8 @@ function Projects() {
             </div>
             <div className='buttonWrapper1'>
               <div className='buttonWrapper2'>
-                <button className='button'><span class="text">Repo</span></button>
-                <button className='button'><span class="text">Demo</span></button>
+                <a className='button' href = 'https://github.com/Thomas-Donnell' target="_blank" rel="noopener noreferrer"><span class="text">Repo</span></a>
+                <a className='button' href = 'https://github.com/Thomas-Donnell' target="_blank" rel="noopener noreferrer"><span class="text">Demo</span></a>
               </div>
             </div>
           </div>
@@ -78,7 +92,9 @@ function Projects() {
         <div className='contentWrapper'>
             <div className='content'>
               <p>
-                This is Content Im just rsadjfjasdlkfjaslkdjflkaasdfadfasdfasdfasdfsdjfklajsdfkasjdf 
+                The Type Racer Bot was built in Python using the Selenium package 
+                for browser automation, and the Pynput library was used to replicate
+                strokes.
               </p>
               <div className='resourceWrapper1'>
                 <div className='resourceWrapper2'>
@@ -88,8 +104,8 @@ function Projects() {
             </div>
             <div className='buttonWrapper1'>
               <div className='buttonWrapper2'>
-                <button className='button'><span class="text">Repo</span></button>
-                <button className='button'><span class="text">Demo</span></button>
+                <a className='button' href = 'https://github.com/Thomas-Donnell' target="_blank" rel="noopener noreferrer"><span class="text">Repo</span></a>
+                <a className='button' href = 'https://github.com/Thomas-Donnell' target="_blank" rel="noopener noreferrer"><span class="text">Demo</span></a>
               </div>
             </div>
           </div>
@@ -116,8 +132,8 @@ function Projects() {
             </div>
             <div className='buttonWrapper1'>
               <div className='buttonWrapper2'>
-                <button className='button'><span class="text">Repo</span></button>
-                <button className='button'><span class="text">Demo</span></button>
+                <a className='button' href = 'https://github.com/Thomas-Donnell/aim-trainer' target="_blank" rel="noopener noreferrer"><span class="text">Repo</span></a>
+                <a className='button' href = 'https://aimtrainer.clarkdonnell.dev' target="_blank" rel="noopener noreferrer"><span class="text">Demo</span></a>
               </div>
             </div>
           </div>
@@ -127,7 +143,10 @@ function Projects() {
         <div className='contentWrapper'>
             <div className='content'>
               <p>
-                This is Content Im just rsadjfjasdlkfjaslkdjflkaasdfadfasdfasdfasdfsdjfklajsdfkasjdf 
+                The Personal Website was built with React, Nodejs, and CSS.
+                Git and GitHub were used for version control. This website really
+                challenged me to improve my skills in CSS. 
+
               </p>
               <div className='resourceWrapper1'>
                 <div className='resourceWrapper2'>
@@ -139,8 +158,8 @@ function Projects() {
             </div>
             <div className='buttonWrapper1'>
               <div className='buttonWrapper2'>
-                <button className='button'><span class="text">Repo</span></button>
-                <button className='button'><span class="text">Demo</span></button>
+                <a className='button' href = 'https://github.com/Thomas-Donnell/personalwebsite' target="_blank" rel="noopener noreferrer"><span class="text">Repo</span></a>
+                <a className='button' href = 'https://clarkdonnell.dev' target="_blank" rel="noopener noreferrer"><span class="text">Demo</span></a>
               </div>
             </div>
           </div>
