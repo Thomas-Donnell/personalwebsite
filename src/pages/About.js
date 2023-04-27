@@ -8,8 +8,7 @@ function About() {
   var tmr1 = undefined;
   var A=1, B=1;
 
-  // This is copied, pasted, reformatted, and ported directly from my original
-  // donut.c code
+ 
     function asciiframe() {
     var b=[];
     var z=[];
